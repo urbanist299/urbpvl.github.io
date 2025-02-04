@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<title>Pavlodar Underground</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+
+let objectList = [
+	{
+		'name': "Автотранспортная контора №3",
+		'image': "src/obj.jpg",
+		'article': 101,
+		'galaryList': ['src/photo_2025-01-22_10-34-54.jpg','src/photo_2025-01-22_10-36-24.jpg','src/photo_2025-01-22_10-34-56.jpg'],
+		'type': 'ЗБ',
+		'save': '6/10',
+		'security': '2/10',
+		'description': " На первом этаже стоит много старой мебели, разбросаны противогазы и в общем довольно таки скучновато. Но как только поднимаешься на второй этаж, начинается самое интересное! Тебя встречает старый актовый зал, в котором сохранились сиденья, уже знатно покрывшиеся многолетним слоем пыли, и старый плакат с Лениным на сцене. Так-же там была когда-то кино-проекторная, от которой ничего практически не осталось"
+	}, 
+	{
+		'name': "ЗСГО Чашки-Ложки",
+		'image': "src/DSC_0150.JPG",
+		'article': 102,
+		'galaryList': ['src/DSC_0145.JPG','src/DSC_0166.JPG'],
+		'type': 'ЗСГО',
+		'save': '4/10',
+		'security': '8/10',
+		'description': 'Побывал в небольшом убежище, под зданием бывшего завода столовых приборов. Получил необычный опыт "официального" похода на объект, с личным проводником в виде доброго дяди охранника, с которым мы успели приятно побеседовать, пока я делал фотографии). Приятно что внутри сохранились герметические двери, есть полноценное освещение и какая никакая атмосфера старого бомбоубежища. Спустившись вниз, к нам вышли поздороваться местные жители подземелий - крысы!). Название сооружению я дал не просто так) владельцы используют его как овощехранилище, выбросив оттуда всё старое имущество ГО',
+	},
+	{
+		'name': "ЗСГО №31",
+		'image': "src/DSC_0079.JPG",
+		'article': 103,
+		'galaryList': ['src/DSC_0090.JPG','src/DSC_0077.JPG'],
+		'type': 'ЗСГО',
+		'save': '10/10',
+		'security': '5/10',
+		'description': 'Небольшое двухсекционное типовое убежище, относящееся к железнодорожной организации "Павлодарская дистанция пути". Внутри всё отремонтировано, чисто, ухоженно, эталон среди маленьких убежищ в Павлодаре.',
+	},
+	{
+		'name': "Убежище 8 марта",
+		'image': "src/DSC_0360.JPG",
+		'article': 104,
+		'galaryList': ['src/photo_2024-08-27_17-39-49.jpg','src/photo_2024-08-28_08-55-15.jpg','src/photo_2024-08-28_17-58-291.jpg','src/photo_2024-08-28_17-58-29.jpg','src/photo_2024-08-28_17-58-30.jpg'],
+		'type': 'Бомбоубежище',
+		'save': '5/10',
+		'security': '5/10',
+		'description': 'Убежище под бывшей швейной фабрикой "8 марта". Внутри убежище плохо сохранилось, остались только гермодвери и ящики со старыми средствами индивидуальной защиты',
+	},
+	{
+		'name': "Убежище 'Потраченное'",
+		'image': "src/DSC04049.JPG",
+		'article': 105,
+		'galaryList': ['src/DSC_0148.JPG','src/DSC_0189.JPG','src/DSC_0194.JPG','src/DSC_0199.JPG','src/DSC04053.JPG'],
+		'type': 'Бомбоубежище',
+		'save': '3/10',
+		'security': '3/10',
+		'description': 'Довольно таки скучное убежище в плане сохранности, из интересного внутри осталось частично имущество ГО. Убежище расположено под административно-бытовым корпусом одного завода, уже к сожалению канувшего в лету',
+	}
+];
+
+let hostname = window.location.href, indexHost = hostname.lastIndexOf('='), article = hostname.substring(indexHost+1, hostname.length),
+	result = objectList.find(item => item.article == article);
+window.addEventListener('DOMContentLoaded',
+	function() {
+		let crImg = window.document.createElement('IMG');
+		crImg.setAttribute("src", result.image);
+		
+		let MDD = window.document.createElement('div');
+		
+		let crDL1 = window.document.createElement('DL'),
+			crDt = window.document.createElement('DT'),
+			crDd = window.document.createElement('DD');
+			
+		crDt.appendChild(window.document.createTextNode('Тип:'));
+		crDd.appendChild(window.document.createTextNode(result.type));
+		console.log(result.type);
+		crDL1.appendChild(crDt);
+		crDL1.appendChild(crDd);
+		
+		let crDL2 = window.document.createElement('DL'),
+			crDt1 = window.document.createElement('DT'),
+			crDd1 = window.document.createElement('DD');
+			
+		crDt1.appendChild(window.document.createTextNode('Сохран:'));
+		crDd1.appendChild(window.document.createTextNode(result.save));
+		console.log(result.save);
+		crDL2.appendChild(crDt1);
+		crDL2.appendChild(crDd1);
+		
+		let crDL3 = window.document.createElement('DL'),
+			crDt2 = window.document.createElement('DT'),
+			crDd2 = window.document.createElement('DD');
+		
+		
+		crDt2.appendChild(window.document.createTextNode('Охрана:'));
+		crDd2.appendChild(window.document.createTextNode(result.security));
+		console.log(result.security);
+		crDL3.appendChild(crDt2);
+		crDL3.appendChild(crDd2);
+		
+		
+		let crH1 = window.document.createElement('H1');
+		crH1.appendChild(window.document.createTextNode(result.name));
+		
+		let crP = window.document.createElement('P');
+		crP.appendChild(window.document.createTextNode(result.description));
+		
+		let crUl = window.document.createElement('UL');
+		for(let cnt = 0; cnt < result.galaryList.length; cnt++) {
+			let crLi = window.document.createElement('LI'),
+				crLiImg = window.document.createElement('IMG');
+			crLiImg.setAttribute("src", result.galaryList[cnt]);
+			crLi.appendChild(crLiImg);
+			crUl.appendChild(crLi);
+		}
+		
+		
+		let sMD = window.document.querySelector('main > div'),
+			sMDPD = window.document.querySelector('main div + div'),
+			sS = window.document.querySelector('section');
+		sMD.appendChild(crImg);
+		MDD.appendChild(crDL1);
+		MDD.appendChild(crDL2);
+		MDD.appendChild(crDL3);
+		sMD.appendChild(MDD);
+		sMDPD.appendChild(crH1);
+		sMDPD.appendChild(crP);
+		sS.appendChild(crUl);
+		
+		let modal = document.getElementById("myModal");
+		let modalImg = document.getElementById("img01");
+		let closeBtn = document.getElementsByClassName("close")[0];
+
+		let images = document.querySelectorAll('section ul li img');
+		images.forEach(function(img) {
+			img.addEventListener('click', 
+				function() {
+					modal.style.display = "block";
+					modalImg.src = this.src;
+				});
+			});
+
+		closeBtn.addEventListener('click', 
+			function() {
+				modal.style.display = "none";
+			});
+
+		modal.addEventListener('click', 
+			function(event) {
+				if (event.target === modal) {
+					modal.style.display = "none";
+				}
+			});
+	}
+);
+
+</script>
+<style>
+
+body {
+	margin: 0;
+	background-color: #0f0f0f;
+}
+
+header {
+	background-color: #1a1a1a;
+	width: 100%;
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+}
+
+header div {
+	display: flex;
+	align-items: center;
+}
+
+header h1 {
+	margin: 0;
+	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+
+header div > h1 {
+	color: white;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+header div h1 + h1 {
+	color: red;
+}
+
+header ul {
+	display: flex;
+	list-style-type: none;
+}
+
+header li {
+	padding-right: 35px;
+	font-size: 1.5rem;
+	font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+header a {
+	color: white;
+	text-decoration: none;
+}
+header span {
+	color: #4f4f4f; 
+}
+
+main {
+	display: flex;
+	padding: 20px 100px 0 100px;
+}
+
+main > div img {
+	width: 300px;
+	height: 200px;
+	border-radius: 10px;
+	border: 1px solid black;
+}
+
+main > div dl {
+	display: flex;
+	width: 250px;
+	justify-content: space-between;
+	color: white;
+	font-family: Trebuchet MS, sans-serif;
+}
+
+main > div div {
+	background-color: rgba(56, 56, 56, 0.1);
+	padding: 10px;
+	margin: 15px 0 0 0;
+	border-radius: 10px;
+	
+}
+
+main div + div {
+	margin-left: 50px;
+	color: white;
+	width: 90%;
+	font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+main div + div p {
+	width: 80%;
+}
+
+section {
+	padding: 0 100px 0 100px;
+}
+
+section h2 {
+	color: white;
+	font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+section ul {
+	display: flex;
+	flex-wrap: wrap;
+	list-style-type: none;
+}
+
+section li {
+	padding-right: 15px;
+	padding-bottom: 10px;
+}
+
+section img {
+	width: 350px;
+	height: 250px;
+	cursor: pointer;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	padding-top: 60px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+	margin: auto;
+	display: block;
+	max-width: 80%;
+	max-height: 80%;
+}
+
+.close {
+	position: absolute;
+	top: 20px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+	<div>
+		<h1>PAVLODAR</h1>
+		<h1>UNDERGROUND</h1>
+	</div>
+	<div>
+		<ul>
+			<li><a href="urbpvl.github.io/main">Главная</a></li>
+			<li><span>Объекты</span></li>
+			<li><a href="#">Лючки</a></li>
+		</ul>
+	</div>
+</header>
+<main>
+	<div>
+	</div>
+	
+	<div></div>
+</main>
+<section>
+	<h2>Фотографии:</h2>
+	<ul>
+	</ul>
+</section>
+
+<div id="myModal" class="modal">
+	<span class="close">&times;</span>
+	<img class="modal-content" id="img01">
+</div>
+
+</body>
+</html>
