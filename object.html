@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<title>Pavlodar Underground</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+
+let objectList = [
+	{
+		'name': "Автотранспортная контора №3",
+		'image': "src/obj.jpg",
+		'article': 101,
+		'galaryList': ['src/photo_2025-01-22_10-34-54.jpg','src/photo_2025-01-22_10-36-24.jpg','src/photo_2025-01-22_10-34-56.jpg'],
+		'type': 'ЗБ',
+		'save': '6/10',
+		'security': '2/10',
+		'description': " На первом этаже стоит много старой мебели, разбросаны противогазы и в общем довольно таки скучновато. Но как только поднимаешься на второй этаж, начинается самое интересное! Тебя встречает старый актовый зал, в котором сохранились сиденья, уже знатно покрывшиеся многолетним слоем пыли, и старый плакат с Лениным на сцене. Так-же там была когда-то кино-проекторная, от которой ничего практически не осталось"
+	}, 
+	{
+		'name': "ЗСГО Чашки-Ложки",
+		'image': "src/DSC_0150.JPG",
+		'article': 102,
+		'galaryList': ['src/DSC_0145.JPG','src/DSC_0166.JPG'],
+		'type': 'ЗСГО',
+		'save': '4/10',
+		'security': '8/10',
+		'description': 'Побывал в небольшом убежище, под зданием бывшего завода столовых приборов. Получил необычный опыт "официального" похода на объект, с личным проводником в виде доброго дяди охранника, с которым мы успели приятно побеседовать, пока я делал фотографии). Приятно что внутри сохранились герметические двери, есть полноценное освещение и какая никакая атмосфера старого бомбоубежища. Спустившись вниз, к нам вышли поздороваться местные жители подземелий - крысы!). Название сооружению я дал не просто так) владельцы используют его как овощехранилище, выбросив оттуда всё старое имущество ГО',
+	},
+	{
+		'name': "ЗСГО №31",
+		'image': "src/DSC_0079.JPG",
+		'article': 103,
+		'galaryList': ['src/DSC_0090.JPG','src/DSC_0077.JPG'],
+		'type': 'ЗСГО',
+		'save': '10/10',
+		'security': '5/10',
+		'description': 'Небольшое двухсекционное типовое убежище, относящееся к железнодорожной организации "Павлодарская дистанция пути". Внутри всё отремонтировано, чисто, ухоженно, эталон среди маленьких убежищ в Павлодаре.',
+	},
+	{
+		'name': "Убежище 8 марта",
+		'image': "src/DSC_0360.JPG",
+		'article': 104,
+		'galaryList': ['src/photo_2024-08-27_17-39-49.jpg','src/photo_2024-08-28_08-55-15.jpg','src/photo_2024-08-28_17-58-291.jpg','src/photo_2024-08-28_17-58-29.jpg','src/photo_2024-08-28_17-58-30.jpg'],
+		'type': 'Бомбоубежище',
+		'save': '5/10',
+		'security': '5/10',
+		'description': 'Убежище под бывшей швейной фабрикой "8 марта". Внутри убежище плохо сохранилось, остались только гермодвери и ящики со старыми средствами индивидуальной защиты',
+	},
+	{
+		'name': "Убежище 'Потраченное'",
+		'image': "src/DSC04049.JPG",
+		'article': 105,
+		'galaryList': ['src/DSC_0148.JPG','src/DSC_0189.JPG','src/DSC_0194.JPG','src/DSC_0199.JPG','src/DSC04053.JPG'],
+		'type': 'Бомбоубежище',
+		'save': '3/10',
+		'security': '3/10',
+		'description': 'Довольно таки скучное убежище в плане сохранности, из интересного внутри осталось частично имущество ГО. Убежище расположено под административно-бытовым корпусом одного завода, уже к сожалению канувшего в лету',
+	}
+	
+	
+	
+];
+
+window.addEventListener('DOMContentLoaded',
+	function() {
+		let clUl = window.document.querySelector('main ul');
+		for(let cnt = 0; cnt < objectList.length; cnt++) {
+			let objName = objectList[cnt].name,
+				objImage = objectList[cnt].image,
+				objDescription = objectList[cnt].description,
+				crLi = window.document.createElement('LI'),
+				crDiv = window.document.createElement('DIV'),
+				crA = window.document.createElement('A'),
+				crImage = window.document.createElement('IMG'),
+				crP = window.document.createElement('P');
+			crA.appendChild(window.document.createTextNode(objName));
+			crA.setAttribute('href', '/facial.html?ID='+objectList[cnt].article)
+			crImage.setAttribute('src', objImage);
+			crP.appendChild(window.document.createTextNode(objDescription));
+			crLi.appendChild(crImage);
+			crDiv.appendChild(crA);
+			crDiv.appendChild(crP);
+			crLi.appendChild(crDiv);
+			clUl.appendChild(crLi);
+		};
+	}
+);
+
+</script>
+<style>
+
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #0f0f0f;
+}
+
+header {
+	background-color: #1a1a1a;
+	width: 100%;
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+}
+
+header div {
+	display: flex;
+	align-items: center;
+}
+
+header h1 {
+	margin: 0;
+	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+
+header div > h1 {
+	color: white;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+header div h1 + h1 {
+	color: red;
+}
+
+header ul {
+	display: flex;
+	list-style-type: none;
+}
+
+header li {
+	padding-right: 35px;
+	font-size: 1.5rem;
+	font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+header a {
+	color: white;
+	text-decoration: none;
+}
+header span {
+	color: #4f4f4f; 
+}
+
+
+main {
+	background-color: #0f0f0f;
+	color: white;
+}
+
+main > div {
+	border: 1px solid white;
+	border-radius: 10px;
+	padding: 15px;
+	margin: 15px 0 15px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+main > div a {
+	text-decoration: none;
+	color: white;
+	background-color: red;
+	padding: 15px;
+	border-radius: 10px;
+	font-family: Trebuchet MS, sans-serif;
+	
+}
+
+main h1 {
+	margin: unset;
+	font-family: Trebuchet MS, sans-serif;
+}
+
+main li a {
+	margin: unset;
+	padding-top: 15px;
+	color: white;
+	text-decoration: none;
+	font-size: 1.5rem;
+	font-family: Noto Sans, sans-serif;
+}
+
+main li {
+	margin-bottom: 25px;
+	padding: 10px
+	list-style-type: none;
+	display: flex;
+	border: 1px solid #636363;
+	border-radius: 10px;
+	width: 95%;
+}
+
+main li div * {
+	padding: 10px 0 10px 10px;
+}
+
+main img {
+	height: 250px;
+	width: 350px;
+}
+
+main p {
+	font-family: Noto Sans, sans-serif;
+	width: 90%;
+}
+
+main li span {
+	display: none;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+	<div>
+		<h1>PAVLODAR</h1>
+		<h1>UNDERGROUND</h1>
+	</div>
+	<div>
+		<ul>
+			<li><a href="main.html">Главная</a></li>
+			<li><span>Объекты</span></li>
+			<li><a href="#">Лючки</a></li>
+		</ul>
+	</div>
+</header>
+<main>
+	<div>
+		<h1>Арихв Обьектов</h1>
+		<a href="https://t.me/PavlodarUndergroundBot">Предложить Объект</a>
+	</div>
+	<ul>
+		<!--li>
+			<img>
+			<h1>
+			<p>
+		</li-->
+	</ul>
+</main>
+
+</body>
+</html>
